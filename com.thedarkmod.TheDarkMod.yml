@@ -1,0 +1,36 @@
+app-id: com.thedarkmod.TheDarkMod
+runtime: org.freedesktop.Platform
+runtime-version: '21.08'
+sdk: org.freedesktop.Sdk
+command: launcher.sh
+finish-args:
+  - --share=ipc
+  - --socket=x11
+#  - --socket=fallback-x11
+  - --socket=wayland
+  - --device=dri
+  - --socket=pulseaudio
+  - --share=network
+  - --talk-name=org.freedesktop.Notifications
+
+modules:
+  - name: thedarkmod
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 tdm_installer.linux64 /app/bin/tdm_installer.linux64
+      - install -Dm755 launcher.sh /app/bin/launcher.sh
+      - install -Dm644 com.thedarkmod.TheDarkMod.desktop /app/share/applications/com.thedarkmod.TheDarkMod.desktop
+      - install -Dm644 com.thedarkmod.TheDarkMod.png /app/share/icons/hicolor/48x48/apps/com.thedarkmod.TheDarkMod.png
+    sources:
+      - type: archive
+        url: https://update.thedarkmod.com/zipsync/tdm_installer.linux64.zip
+        sha256: f321c07177393834e37e9821f532994e6a871179c2875fa46460a6fdf7054884
+        
+      - type: file
+        path: launcher.sh
+        
+      - type: file
+        path: com.thedarkmod.TheDarkMod.desktop
+
+      - type: file
+        path: com.thedarkmod.TheDarkMod.png
