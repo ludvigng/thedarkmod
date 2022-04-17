@@ -17,18 +17,18 @@ modules:
   - name: thedarkmod
     buildsystem: simple
     build-commands:
-      - unzip tdm_installer.linux64.zip
+#      - unzip tdm_installer.linux64.zip
       - install -Dm755 tdm_installer.linux64 /app/bin/tdm_installer.linux64
       - install -Dm755 launcher.sh /app/bin/launcher.sh
       - install -Dm644 com.thedarkmod.TheDarkMod.desktop /app/share/applications/com.thedarkmod.TheDarkMod.desktop
       - install -Dm644 com.thedarkmod.TheDarkMod.png /app/share/icons/hicolor/48x48/apps/com.thedarkmod.TheDarkMod.png
     sources:
-#      - type: archive
-#        url: https://update.thedarkmod.com/zipsync/tdm_installer.linux64.zip
-#        sha256: f321c07177393834e37e9821f532994e6a871179c2875fa46460a6fdf7054884
+      - type: archive
+        url: https://update.thedarkmod.com/zipsync/tdm_installer_fixed110.linux64.zip
+        sha256: f321c07177393834e37e9821f532994e6a871179c2875fa46460a6fdf7054884
 
-      - type: file
-        path: tdm_installer.linux64.zip
+#      - type: file
+#        path: tdm_installer.linux64.zip
         
       - type: file
         path: launcher.sh
